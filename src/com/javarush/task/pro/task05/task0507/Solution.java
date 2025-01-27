@@ -1,0 +1,36 @@
+package com.javarush.task.pro.task05.task0507;
+
+import java.util.Scanner;
+
+public class Solution {
+    public static String[] strings;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        strings = new String[6];
+        for (int i = 0; i < 6; i++) {
+            strings[i] = scanner.nextLine();
+        }
+
+        for (int i = 0; i < strings.length; i++) {
+            String currentString = strings[i];
+
+            for (int j = i+1; j < strings.length; j++) {
+
+                if (currentString == null)
+                    break;
+
+                if (currentString.equals(strings[j])) {
+                    strings[i] = null;
+                    strings[j] = null;
+                }
+            }
+        }
+
+        for (String string : strings) {
+            System.out.print(string + ", ");
+        }
+        scanner.close();
+    }
+}
+
